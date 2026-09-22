@@ -21,16 +21,20 @@ vibramente-web/
 
 ## Estado actual
 
-- ✅ Proyecto de Firebase creado: **`vibramente-web-app`**.
+- ✅ Proyecto de Firebase creado y desplegado: **`vibramente-web-app`**
+  (hosting + Firestore + reglas, ver sección 3).
 - ✅ `public/js/firebase-config.js` y `.firebaserc` ya tienen la config real
   (los valores del SDK web son públicos por diseño; lo que protege los datos
   son las reglas de Firestore, no esta config).
-- ⏳ **Pendiente (1 paso manual, una sola vez):** habilitar la API de Cloud
-  Firestore en Google Cloud antes del primer `firebase deploy`:
-  1. Abre
-     https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=vibramente-web-app
-  2. Haz clic en **"Habilitar"**.
-  3. Corre:
+- ✅ Vista previa del enlace (`og:image`/`twitter:image`) usa el logo de
+  Vibramente sobre el fondo de marca — ya no la foto/video del hero.
+- ✅ Aviso por correo a **bksegurosec@gmail.com** activo vía EmailJS en cada
+  lead nuevo (ver sección 4, "Avisos por correo").
+- Si algún día se recrea el proyecto de Firebase desde cero, falta un paso
+  manual antes del primer `firebase deploy`: habilitar la API de Cloud
+  Firestore en
+  https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=vibramente-web-app
+  y luego:
      ```bash
      firebase firestore:databases:create "(default)" --location=nam5 --project vibramente-web-app
      firebase deploy --only firestore:rules --project vibramente-web-app
@@ -74,9 +78,30 @@ Las reglas (`firestore.rules`) permiten **crear** leads desde la web y
 **prohíben leerlos, editarlos o borrarlos** con la clave pública. Se
 consultan desde la consola de Firebase → Firestore → colección `leads`.
 
-### Avisos por correo (opcional)
+### Avisos por correo (ya activo)
 
-Extensión oficial **Trigger Email from Firestore**, o una Cloud Function:
+Cada envío exitoso a Firestore también dispara un correo a
+**bksegurosec@gmail.com** vía **EmailJS** (100% desde el navegador, sin
+Cloud Functions ni plan Blaze). Configuración en
+`public/js/firebase-config.js`:
+
+- `EMAILJS_SERVICE_ID` — servicio de Gmail conectado en EmailJS.
+- `EMAILJS_TEMPLATE_ID` — plantilla con variables `{{nombre}}`,
+  `{{contacto}}`, `{{perfil}}`, `{{tarea}}`, `{{origen}}`.
+- `EMAILJS_PUBLIC_KEY` — clave pública de la cuenta (como `firebaseConfig`,
+  es pública por diseño).
+
+El envío es "best-effort": si EmailJS falla, el lead **ya quedó guardado en
+Firestore** (no se pierde), solo no llega el aviso; revisa la consola del
+navegador o el dashboard de EmailJS (Email History) si sospechas fallos.
+
+Para cambiar el destinatario o la plantilla: entra a
+[dashboard.emailjs.com](https://dashboard.emailjs.com), edita la plantilla
+del servicio `service_3gfe0sd`, o crea un servicio/plantilla nuevo y
+actualiza las tres constantes de arriba.
+
+Alternativa nativa de Firebase (requiere plan Blaze): extensión oficial
+**Trigger Email from Firestore**, o una Cloud Function:
 
 ```js
 exports.avisoLead = onDocumentCreated("leads/{id}", async (event) => {

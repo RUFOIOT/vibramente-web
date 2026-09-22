@@ -2,7 +2,32 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getFirestore, collection, addDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { firebaseConfig, WHATSAPP_NUMBER, LEADS_COLLECTION } from "./firebase-config.js";
+import {
+  firebaseConfig, WHATSAPP_NUMBER, LEADS_COLLECTION,
+  EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY
+} from "./firebase-config.js";
+
+// Import dinámico: si el CDN de EmailJS falla, no debe tumbar el resto del
+// script (Firestore y WhatsApp ya guardaron el lead, lo cual es lo crítico).
+async function notifyByEmail(lead) {
+  try {
+    const { default: emailjs } = await import("https://cdn.jsdelivr.net/npm/@emailjs/browser@4/+esm");
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        nombre: lead.nombre,
+        contacto: lead.contacto,
+        perfil: lead.perfil,
+        tarea: lead.tarea || "(sin detalle)",
+        origen: lead.origen
+      },
+      { publicKey: EMAILJS_PUBLIC_KEY }
+    );
+  } catch (err) {
+    console.error("Aviso por correo no enviado:", err);
+  }
+}
 
 /* ------------------------------------------------------------------ *
  * 1. Datos de la página
@@ -244,10 +269,15 @@ function setupForm() {
       if (!db) throw new Error("Firestore no disponible");
       await addDoc(collection(db, LEADS_COLLECTION), lead);
       form.hidden = true;
+      form.style.display = "none";
       ok.hidden = false;
+      ok.style.display = "flex";
       if (document.getElementById("c-wa")?.checked) {
         window.open(okLink.href, "_blank", "noopener");
       }
+      // Aviso por correo (best-effort): el lead ya está en Firestore, así
+      // que un fallo aquí no debe afectar la experiencia de la persona.
+      notifyByEmail(lead);
     } catch (err) {
       console.error(err);
       // Si Firestore falla, el lead no se pierde: se va por WhatsApp.
