@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vibramente · AI &amp; Hacking School</title>
 <meta name="description" content="Convierte la IA en algo útil para tu trabajo. Cohortes, consultoría y laboratorios de inteligencia agéntica en Quito, Ecuador.">
-<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="canonical" href="https://vibramente-web-app.web.app/">
+<meta name="theme-color" content="#070b14">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="assets/favicon.png" type="image/png" sizes="180x180">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:title" content="Vibramente · AI &amp; Hacking School">
 <meta property="og:description" content="Convierte la IA en algo útil para tu trabajo. Próxima cohorte: 6 de octubre de 2026.">
 <meta property="og:url" content="https://vibramente-web-app.web.app/">
@@ -27,31 +31,133 @@ a{color:#6bf4c8}a:hover{color:#2cdade}
 html{scroll-behavior:smooth}
 img,video{max-width:100%}
 .navlinks{display:flex}
-@media (max-width:860px){.navlinks{display:none}}
 button,input,select,textarea{font-family:inherit}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #6bf4c8;outline-offset:3px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+.skip{position:absolute;left:-9999px;top:0;z-index:100;padding:14px 22px;background:#6bf4c8;color:#070b14;font-weight:600;text-decoration:none;border-radius:0 0 12px 0}
+.skip:focus{left:0}
+.navtoggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;flex-shrink:0;border-radius:12px;background:transparent;border:1px solid rgba(255,255,255,0.22);color:#f4f1ea;cursor:pointer}
+.nav-wa-m{display:none}
+@media (max-width:860px){
+.navlinks{display:none}
+.navtoggle{display:inline-flex}
+#nav-wa{display:none!important}
+nav[aria-label="Principal"]{gap:12px!important}
+.brand-iso{width:44px!important}
+.brand-wm{width:148px!important}
+.navlinks.open{display:flex;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch!important;gap:0!important;padding:4px 24px 18px;background:#070b14;border-bottom:1px solid rgba(255,255,255,0.10);box-shadow:0 18px 30px rgba(0,0,0,0.45)}
+.navlinks.open a{display:flex;align-items:center;min-height:50px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.navlinks.open .nav-wa-m{display:flex;justify-content:center;margin-top:14px;border-bottom:none;background:#6bf4c8;color:#070b14;border-radius:999px;font-weight:600}
+}
+@media (max-width:430px){.brand-wm,.brand-div{display:none}}
+@media (max-width:620px){.cohorte-imgs{grid-template-columns:1fr 1fr!important}}
 </style>
+<link rel="preload" as="image" href="assets/setup-hero-poster.jpg" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["EducationalOrganization", "ProfessionalService"],
+      "@id": "https://vibramente-web-app.web.app/#org",
+      "name": "Vibramente",
+      "alternateName": "Vibramente AI & Hacking School",
+      "description": "Escuela y laboratorio de inteligencia artificial agéntica en Quito, Ecuador. Cohortes para profesionales, implementación de agentes en empresas y laboratorios de IA para colegios.",
+      "url": "https://vibramente-web-app.web.app/",
+      "logo": "https://vibramente-web-app.web.app/assets/og-image.jpg",
+      "image": "https://vibramente-web-app.web.app/assets/og-image.jpg",
+      "email": "hola@vibramente.studio",
+      "telephone": "+593999793094",
+      "areaServed": {"@type": "Country", "name": "Ecuador"},
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Puembo / Tumbaco, Quito",
+        "addressCountry": "EC"
+      },
+      "founder": {"@id": "https://vibramente-web-app.web.app/#felipe"},
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "telephone": "+593999793094",
+        "email": "hola@vibramente.studio",
+        "availableLanguage": ["Spanish"]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://vibramente-web-app.web.app/#felipe",
+      "name": "Felipe Salgado",
+      "jobTitle": "Forward Deploy Engineer",
+      "description": "Ingeniero y hacker con más de 10 años construyendo en blockchain y arquitectura de agentes. Fundador de Vibramente.",
+      "worksFor": {"@id": "https://vibramente-web-app.web.app/#org"}
+    },
+    {
+      "@type": "Course",
+      "@id": "https://vibramente-web-app.web.app/#cohorte",
+      "name": "Cohorte Vibramente: construye tu propio agente de IA",
+      "description": "Cuatro semanas, ocho sesiones en vivo. Cada participante construye un agente para una tarea real de su trabajo y lo presenta funcionando en la sesión final.",
+      "url": "https://vibramente-web-app.web.app/#cohorte",
+      "inLanguage": "es",
+      "teaches": ["Inteligencia artificial agéntica", "Diseño de agentes", "Automatización de tareas", "Especificación de agentes"],
+      "educationalLevel": "Profesional",
+      "provider": {"@id": "https://vibramente-web-app.web.app/#org"},
+      "instructor": {"@id": "https://vibramente-web-app.web.app/#felipe"},
+      "offers": {
+        "@type": "Offer",
+        "price": "950",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://vibramente-web-app.web.app/#contacto",
+        "category": "Precio de lanzamiento"
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": ["online", "onsite"],
+        "courseWorkload": "PT4H",
+        "startDate": "2026-10-06",
+        "maximumAttendeeCapacity": 10,
+        "location": {"@type": "Place", "name": "Quito, Ecuador"},
+        "instructor": {"@id": "https://vibramente-web-app.web.app/#felipe"}
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vibramente-web-app.web.app/#faq",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Necesito saber programar?", "acceptedAnswer": {"@type": "Answer", "text": "No. Trabajamos con asistentes de IA y conectores listos para usar. Si ya usas ChatGPT o Claude para tareas sueltas, tienes lo necesario para empezar."}},
+        {"@type": "Question", "name": "¿Cuánto tiempo necesito por semana?", "acceptedAnswer": {"@type": "Answer", "text": "En cohorte: dos sesiones en vivo de 2 horas por semana, más el tiempo que dediques a construir tu agente entre sesiones."}},
+        {"@type": "Question", "name": "¿Qué herramientas usamos?", "acceptedAnswer": {"@type": "Answer", "text": "Principalmente Claude y sus conectores. Te ayudamos a dejar todo configurado antes de la primera sesión para no perder tiempo de clase."}},
+        {"@type": "Question", "name": "¿Qué me llevo al final?", "acceptedAnswer": {"@type": "Answer", "text": "Un agente funcionando para una tarea real, su especificación documentada y la experiencia de presentarlo en vivo."}},
+        {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Cohortes: 950 USD de precio de lanzamiento (precio normal 1.900 USD) para la cohorte del 6 de octubre de 2026, con 10 cupos. Empresas y colegios reciben una propuesta según el alcance después de una llamada de 20 minutos."}}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <div style="width: 100%; min-height: 100%; background: #070b14; color: #f4f1ea; font-family: Inter, system-ui, sans-serif;">
 
 <header style="position: sticky; top: 0; z-index: 10; background: #070b14; border-bottom: 1px solid rgba(255,255,255,0.10);">
 <nav aria-label="Principal" style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-<a href="#inicio" aria-label="Vibramente, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;"><img src="assets/isotipo.png" alt="" style="width: 58px; height: auto; display: block;"><span style="width: 1px; height: 28px; background: rgba(255,255,255,0.18);"></span><img src="assets/wordmark.png" alt="Vibramente" style="width: 190px; height: auto; display: block;"></a>
-<div class="navlinks" style="align-items: center; gap: 28px; font-size: 15px;">
+<a href="#inicio" aria-label="Vibramente, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;"><img class="brand-iso" src="assets/isotipo.png" alt="" width="58" height="32" style="width: 58px; height: auto; display: block;"><span class="brand-div" style="width: 1px; height: 28px; background: rgba(255,255,255,0.18);"></span><img class="brand-wm" src="assets/wordmark.png" alt="Vibramente" width="190" height="32" style="width: 190px; height: auto; display: block;"></a>
+<div class="navlinks" id="navlinks" style="align-items: center; gap: 28px; font-size: 15px;">
 <a href="#rutas" style="color: #c9d2e3; text-decoration: none;">Qué hacemos</a>
 <a href="#metodo" style="color: #c9d2e3; text-decoration: none;">Método</a>
 <a href="#cohorte" style="color: #c9d2e3; text-decoration: none;">Cohortes</a>
 <a href="#felipe" style="color: #c9d2e3; text-decoration: none;">Quiénes somos</a>
 <a href="#faq" style="color: #c9d2e3; text-decoration: none;">Preguntas</a>
+<a class="nav-wa-m" data-wa="nav-movil" href="https://wa.me/593999793094" target="_blank" rel="noopener" style="color: #070b14; text-decoration: none;">Escríbenos por WhatsApp</a>
 </div>
-<a id="nav-wa" href="https://wa.me/593999793094" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #6bf4c8; color: #070b14; font-weight: 600; font-size: 15px; text-decoration: none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.34 4.95L2 22l5.22-1.37a9.9 9.9 0 004.82 1.24h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.88 9.88 0 0012.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.95 1.34-.5.05-.98.24-3.3-.7-2.78-1.1-4.55-3.95-4.69-4.14-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.07.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.09 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg><span>Escríbenos por WhatsApp</span></a>
+<button class="navtoggle" id="navtoggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navlinks"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+<a id="nav-wa" data-wa="cabecera" href="https://wa.me/593999793094" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #6bf4c8; color: #070b14; font-weight: 600; font-size: 15px; text-decoration: none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.34 4.95L2 22l5.22-1.37a9.9 9.9 0 004.82 1.24h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.88 9.88 0 0012.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.95 1.34-.5.05-.98.24-3.3-.7-2.78-1.1-4.55-3.95-4.69-4.14-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.07.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.09 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg><span>Escríbenos por WhatsApp</span></a>
 </nav>
 </header>
 
+<main id="contenido">
 <section id="inicio" style="position: relative; overflow: hidden; background: #131512; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 44px 44px;">
-<video src="assets/setup-hero.mp4" poster="assets/setup-hero-poster.jpg" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; pointer-events: none;"></video>
+<video id="hero-video" data-src="assets/setup-hero.mp4" poster="assets/setup-hero-poster.jpg" preload="none" muted="muted" loop="loop" playsinline="playsinline" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; pointer-events: none;"></video>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,11,20,0.93) 0%, rgba(7,11,20,0.78) 38%, rgba(7,11,20,0.25) 70%, rgba(7,11,20,0.05) 100%); pointer-events: none;"></div>
 <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px 88px; display: flex; flex-direction: column; gap: 28px;">
 <div style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #c9d2e3;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #6bf4c8;"></span><span>AI &amp; Hacking School · Quito, Ecuador</span></div>
@@ -82,7 +188,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <a id="aud-cta" href="#contacto" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; font-size: 16px; font-weight: 600; text-decoration: none; background: #9431fa; color: #ffffff;"></a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 16px;">
-<img id="aud-img" src="assets/cohorte-checkpoint.jpg" alt="" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 45%; border-radius: 16px; display: block;">
+<img id="aud-img" src="assets/cohorte-checkpoint.jpg" alt="" width="1100" height="688" loading="lazy" decoding="async" style="width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 45%; border-radius: 16px; display: block;">
 <ul id="aud-points" style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px;">
 </ul>
 </div>
@@ -117,10 +223,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <span style="padding: 8px 14px; border-radius: 999px; background: #070b14; font-size: 14px; color: #c9d2e3;">10 cupos</span>
 <span style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: #6bf4c8; color: #070b14; font-size: 14px; font-weight: 600;">Lanzamiento: 950 USD <s style="font-weight: 400;">1.900 USD</s></span>
 </div>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 8px;">
-<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/clase-online.jpg" alt="Clase online en vivo: Felipe y los participantes de la cohorte conectados por videollamada" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center center; border-radius: 16px; display: block;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Online</figcaption></figure>
-<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/colegio-docentes.jpg" alt="Alumnos de un curso presencial de Vibramente al cierre de la jornada" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; display: block; object-position: center 55%;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Presencial</figcaption></figure>
-<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/sesion-1a1.jpg" alt="Felipe en una sesión 1:1 revisando notas con un participante" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; border-radius: 16px; display: block;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Sesiones 1:1</figcaption></figure>
+<div class="cohorte-imgs" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 8px;">
+<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/clase-online.jpg" alt="Clase online en vivo: Felipe y los participantes de la cohorte conectados por videollamada" width="700" height="525" loading="lazy" decoding="async" style="width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center center; border-radius: 16px; display: block;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Online</figcaption></figure>
+<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/colegio-docentes.jpg" alt="Alumnos de un curso presencial de Vibramente al cierre de la jornada" width="700" height="525" loading="lazy" decoding="async" style="width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; display: block; object-position: center 55%;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Presencial</figcaption></figure>
+<figure style="display: flex; flex-direction: column; gap: 8px; margin: 0;"><img src="assets/sesion-1a1.jpg" alt="Felipe en una sesión 1:1 revisando notas con un participante" width="700" height="525" loading="lazy" decoding="async" style="width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; border-radius: 16px; display: block;"><figcaption style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2cdade; text-align: center;">Sesiones 1:1</figcaption></figure>
 </div>
 </div>
 <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column;">
@@ -162,7 +268,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <li style="padding: 8px 14px; border-radius: 999px; background: #070b14; border: 1px solid rgba(255,255,255,0.10); font-size: 14px; color: #c9d2e3;">Docente en Eight Academy</li>
 </ul>
 <figure style="width: 100%; margin: 12px 0 0 0; display: flex; flex-direction: column; gap: 10px;">
-<img src="assets/felipe-cv.jpg" alt="Tarjeta de perfil de Felipe Salgado Ramos: Forward Deploy Engineer, fundador de Vibramente y proyectos en blockchain y Web3, experiencia, educación y stack tecnológico" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.10); display: block;">
+<img src="assets/felipe-cv.jpg" alt="Tarjeta de perfil de Felipe Salgado Ramos: Forward Deploy Engineer, fundador de Vibramente y proyectos en blockchain y Web3, experiencia, educación y stack tecnológico" width="1280" height="720" loading="lazy" decoding="async" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid rgba(255,255,255,0.10); display: block;">
 <figcaption style="font-size: 13px; color: #9ba6bd; text-align: center;">Trayectoria: proyectos, experiencia y stack de Felipe Salgado · <a href="assets/felipe-cv.jpg" target="_blank" rel="noopener">Ver en tamaño completo</a></figcaption>
 </figure>
 </div>
@@ -182,8 +288,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #b98cff;">Siguiente paso</span>
 <h2 id="contacto-t" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.02; letter-spacing: -0.03em;">Cuéntanos qué quieres resolver</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #c9d2e3;">Respondemos con una propuesta de 20 minutos para ver tu caso. Sin compromiso.</p>
-<div style="display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 999px; background: #101826; align-self: flex-start;"><img src="assets/felipe-avatar.jpg" alt="" style="width: 52px; height: 52px; border-radius: 999px; object-fit: cover; display: block;"><span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 15px; font-weight: 600;">Te responde Felipe</span><span style="font-size: 13px; color: #9ba6bd;">Forward Deploy Engineer</span></span></div>
-<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #c9d2e3;">¿Prefieres escribir directo?<br><a href="https://wa.me/593999793094">WhatsApp +593 99 979 3094</a><br><a href="mailto:hola@vibramente.studio">hola@vibramente.studio</a></p>
+<div style="display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 999px; background: #101826; align-self: flex-start;"><img src="assets/felipe-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async" style="width: 52px; height: 52px; border-radius: 999px; object-fit: cover; display: block;"><span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 15px; font-weight: 600;">Te responde Felipe</span><span style="font-size: 13px; color: #9ba6bd;">Forward Deploy Engineer</span></span></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #c9d2e3;">¿Prefieres escribir directo?<br><a data-wa="contacto-texto" href="https://wa.me/593999793094">WhatsApp +593 99 979 3094</a><br><a href="mailto:hola@vibramente.studio">hola@vibramente.studio</a></p>
 </div>
 <div>
 <form id="lead-form" style="display: flex; flex-direction: column; gap: 18px; padding: 32px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10);">
@@ -203,22 +309,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <div id="lead-ok" role="status" hidden style="display: none; flex-direction: column; gap: 12px; padding: 32px; border-radius: 24px; background: #101826; border: 1px solid #6bf4c8;">
 <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 26px;">Recibido.</span>
 <span style="font-size: 16px; line-height: 1.65; color: #c9d2e3;">Te escribimos en menos de 24 horas h&aacute;biles para agendar tu llamada. Si prefieres, escr&iacute;benos ahora mismo.</span>
-<a id="lead-wa" href="https://wa.me/593999793094" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #25d366; color: #06110a; font-weight: 600; text-decoration: none;">Continuar en WhatsApp</a>
+<a id="lead-wa" data-wa="post-formulario" href="https://wa.me/593999793094" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #25d366; color: #06110a; font-weight: 600; text-decoration: none;">Continuar en WhatsApp</a>
 </div>
 </div>
 </div>
 </section>
 
+</main>
+
 <footer style="background: #070b14; border-top: 1px solid rgba(255,255,255,0.08);">
 <div style="max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; font-size: 14px; color: #9ba6bd;">
-<span style="display: flex; align-items: center; gap: 12px;"><img src="assets/isotipo.png" alt="" style="width: 64px; height: auto; display: block;"><img src="assets/wordmark.png" alt="Vibramente, AI &amp; Hacking School" style="width: 200px; height: auto; display: block;"></span>
+<span style="display: flex; align-items: center; gap: 12px;"><img src="assets/isotipo.png" alt="" width="64" height="35" loading="lazy" decoding="async" style="width: 64px; height: auto; display: block;"><img src="assets/wordmark.png" alt="Vibramente, AI &amp; Hacking School" width="200" height="34" loading="lazy" decoding="async" style="width: 200px; height: auto; display: block;"></span>
 <span>Vibramente School · ORION by Vibramente · Vibramente Labs</span>
 <span>Puembo / Tumbaco, Quito, Ecuador</span>
 </div>
 </footer>
 
 
-<a class="wa-float" href="https://wa.me/593999793094" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 999px; background: #25d366; color: #06110a; box-shadow: 0 8px 24px rgba(0,0,0,0.45);"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.34 4.95L2 22l5.22-1.37a9.9 9.9 0 004.82 1.24h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.88 9.88 0 0012.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.95 1.34-.5.05-.98.24-3.3-.7-2.78-1.1-4.55-3.95-4.69-4.14-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.07.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.09 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg></a>
+<a class="wa-float" data-wa="boton-flotante" href="https://wa.me/593999793094" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position: fixed; right: 20px; bottom: 20px; z-index: 30; display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; border-radius: 999px; background: #25d366; color: #06110a; box-shadow: 0 8px 24px rgba(0,0,0,0.45);"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.34 4.95L2 22l5.22-1.37a9.9 9.9 0 004.82 1.24h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.88 9.88 0 0012.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.95 1.34-.5.05-.98.24-3.3-.7-2.78-1.1-4.55-3.95-4.69-4.14-.14-.19-1.12-1.49-1.12-2.84 0-1.35.7-2.01.95-2.29.25-.28.55-.35.73-.35.18 0 .37 0 .53.01.17.01.4-.07.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.3-.12.58.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.64-.14.26.09 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.69-.17 1.37z"/></svg></a>
 </div>
 <script type="module" src="js/app.js"></script>
 </body>

@@ -3,7 +3,7 @@ import {
   getFirestore, collection, addDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import {
-  firebaseConfig, WHATSAPP_NUMBER, LEADS_COLLECTION,
+  firebaseConfig, WHATSAPP_NUMBER, LEADS_COLLECTION, EVENTS_COLLECTION,
   EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY
 } from "./firebase-config.js";
 
@@ -138,6 +138,7 @@ function renderTabs() {
       current = key;
       if (els.perfil) els.perfil.value = key;
       render();
+      track("perfil", key);
     });
     tabsBox.appendChild(b);
   });
@@ -272,6 +273,7 @@ function setupForm() {
       form.style.display = "none";
       ok.hidden = false;
       ok.style.display = "flex";
+      track("lead", lead.perfil);
       if (document.getElementById("c-wa")?.checked) {
         window.open(okLink.href, "_blank", "noopener");
       }
@@ -298,9 +300,70 @@ function setupForm() {
 }
 
 /* ------------------------------------------------------------------ *
- * 5. Arranque
+ * 5. Métricas del embudo (sin datos personales)
+ * ------------------------------------------------------------------ */
+
+const esMovil = () => window.matchMedia("(max-width: 860px)").matches;
+
+function track(tipo, detalle) {
+  if (!db) return;
+  let referente = "directo";
+  try {
+    if (document.referrer) referente = new URL(document.referrer).hostname.slice(0, 80);
+  } catch { /* referrer inválido: queda "directo" */ }
+  addDoc(collection(db, EVENTS_COLLECTION), {
+    tipo,
+    detalle: String(detalle || "").slice(0, 60),
+    dispositivo: esMovil() ? "movil" : "escritorio",
+    origen: location.hostname || "local",
+    referente,
+    creadoEn: serverTimestamp()
+  }).catch(() => { /* una métrica perdida nunca debe molestar a la persona */ });
+}
+
+document.addEventListener("click", (e) => {
+  const wa = e.target.closest('a[href*="wa.me"]');
+  if (wa) track("wa_click", wa.dataset.wa || "otro");
+});
+
+/* ------------------------------------------------------------------ *
+ * 6. Menú móvil y video del hero
+ * ------------------------------------------------------------------ */
+
+function setupNav() {
+  const toggle = document.getElementById("navtoggle");
+  const links = document.getElementById("navlinks");
+  if (!toggle || !links) return;
+  const setOpen = (open) => {
+    links.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  };
+  toggle.addEventListener("click", () => setOpen(!links.classList.contains("open")));
+  links.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+}
+
+// El video es decorativo y va detrás de un degradado al 78-93%: en móvil,
+// con datos limitados o con reduced-motion no compensa descargarlo.
+function setupHeroVideo() {
+  const v = document.getElementById("hero-video");
+  if (!v || !v.dataset.src) return;
+  const conn = navigator.connection;
+  const lento = conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""));
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (esMovil() || reduce || lento) return;
+  v.src = v.dataset.src;
+  v.play().catch(() => { /* autoplay bloqueado: queda el póster */ });
+}
+
+/* ------------------------------------------------------------------ *
+ * 7. Arranque
  * ------------------------------------------------------------------ */
 
 render();
 renderFaq();
 setupForm();
+setupNav();
+setupHeroVideo();
+track("visita", location.hash || "inicio");

@@ -30,6 +30,13 @@ vibramente-web/
   Vibramente sobre el fondo de marca — ya no la foto/video del hero.
 - ✅ Aviso por correo a **bksegurosec@gmail.com** activo vía EmailJS en cada
   lead nuevo (ver sección 4, "Avisos por correo").
+- ✅ **Rendimiento:** el sitio pasó de 6,6 MB a 1,4 MB, y la primera visita en
+  móvil de ~6,6 MB a **216 KB** (el video no se descarga en móvil).
+- ✅ **Lighthouse 100/100/100/100** (accesibilidad, buenas prácticas, SEO y
+  agentic browsing), sin fallos.
+- ✅ **SEO:** `robots.txt`, `sitemap.xml`, `llms.txt`, `canonical` y datos
+  estructurados JSON-LD (Organization, Person, Course y FAQPage).
+- ✅ **Métricas propias** del embudo en Firestore (ver sección 8).
 - Si algún día se recrea el proyecto de Firebase desde cero, falta un paso
   manual antes del primer `firebase deploy`: habilitar la API de Cloud
   Firestore en
@@ -133,6 +140,27 @@ copia los registros A o TXT en tu DNS. El certificado se emite solo.
   de publicar.
 - Definir el descriptor oficial: *AI & Hacking School* o
   *School-Lab of Agentic Intelligence*.
+
+## 8. Métricas del embudo
+
+El sitio escribe sus propias métricas en la colección **`eventos`** de
+Firestore. Sin cookies, sin scripts de terceros y sin datos personales: solo
+tipo de evento, dispositivo, dominio de origen y el *hostname* de quien
+refirió la visita (nunca la URL completa).
+
+| `tipo`     | `detalle`                                              |
+|------------|--------------------------------------------------------|
+| `visita`   | ancla de entrada (`inicio`, `#cohorte`…)                |
+| `perfil`   | `persona` / `empresa` / `colegio` (pestaña elegida)     |
+| `wa_click` | `cabecera`, `boton-flotante`, `contacto-texto`, `nav-movil`, `post-formulario` |
+| `lead`     | perfil del formulario enviado                           |
+
+Con esto se puede responder lo que antes era invisible: qué CTA de WhatsApp
+convierte, qué público llega más, y cuántas visitas hacen falta por lead.
+Se consultan en la consola de Firebase → Firestore → `eventos`.
+
+Las reglas permiten **crear** eventos desde la web y **prohíben leerlos** con
+la clave pública, igual que `leads`.
 
 ## Reglas al editar (ver `CLAUDE.md`)
 

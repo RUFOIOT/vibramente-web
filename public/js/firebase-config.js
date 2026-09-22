@@ -18,6 +18,10 @@ export const WHATSAPP_NUMBER = "593999793094";
 // Colección de Firestore donde se guardan los formularios.
 export const LEADS_COLLECTION = "leads";
 
+// Colección de métricas del embudo (visitas, clics a WhatsApp, perfiles,
+// leads). Sin datos personales: solo tipo de evento, dispositivo y origen.
+export const EVENTS_COLLECTION = "eventos";
+
 // EmailJS: envía un correo de aviso a bksegurosec@gmail.com cada vez que
 // se guarda un lead. Claves públicas por diseño (como firebaseConfig);
 // el envío solo funciona con la plantilla configurada en el dashboard de

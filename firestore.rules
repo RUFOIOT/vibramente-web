@@ -28,6 +28,27 @@ service cloud.firestore {
         && request.resource.data.creadoEn == request.time;
     }
 
+    // Métricas del embudo. Mismo criterio que leads: la web solo puede
+    // CREAR, nunca leer. No admite datos personales — los campos están
+    // acotados a valores de una lista cerrada y cadenas cortas.
+    match /eventos/{eventoId} {
+      allow read, update, delete: if false;
+
+      allow create: if
+        request.resource.data.keys().hasOnly(
+          ['tipo', 'detalle', 'dispositivo', 'origen', 'referente', 'creadoEn']
+        )
+        && request.resource.data.tipo in ['visita', 'wa_click', 'perfil', 'lead']
+        && request.resource.data.detalle is string
+        && request.resource.data.detalle.size() <= 60
+        && request.resource.data.dispositivo in ['movil', 'escritorio']
+        && request.resource.data.origen is string
+        && request.resource.data.origen.size() <= 120
+        && request.resource.data.referente is string
+        && request.resource.data.referente.size() <= 80
+        && request.resource.data.creadoEn == request.time;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

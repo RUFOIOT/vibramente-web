@@ -1,0 +1,50 @@
+# Vibramente
+
+> AI & Hacking School en Quito, Ecuador. Enseñamos inteligencia artificial
+> agéntica construyendo: cada participante sale con un agente funcionando
+> para una tarea real de su trabajo, no con apuntes. Dirige Felipe Salgado,
+> Forward Deploy Engineer.
+
+El mismo método en las tres líneas de trabajo: se elige una tarea real que se
+repite, se escribe su especificación, se construye el agente y se deja
+operando midiendo el tiempo que libera. No se requiere saber programar; se
+trabaja con asistentes de IA y conectores listos para usar (principalmente
+Claude). Idioma: español.
+
+## Líneas de trabajo
+
+- [Para quién es](https://vibramente-web-app.web.app/#rutas): los tres
+  públicos — profesionales y founders (cohortes), empresas (ORION by
+  Vibramente) y colegios (Vibramente Labs).
+- [Cohortes](https://vibramente-web-app.web.app/#cohorte): cuatro semanas,
+  ocho sesiones en vivo, demo funcionando en la sesión final. Próxima
+  cohorte el 6 de octubre de 2026, 10 cupos, 950 USD de lanzamiento sobre
+  1.900 USD.
+- [El método](https://vibramente-web-app.web.app/#metodo): detecta, diseña,
+  construye, implementa.
+
+## Quién enseña
+
+- [Felipe Salgado](https://vibramente-web-app.web.app/#felipe): Forward
+  Deploy Engineer con más de 10 años construyendo, de blockchain a
+  arquitectura de agentes. Asesor de UNICEF Chile, mentor ETHDenver 2023 y
+  2025, finalista Startup World Cup SV 2023, docente en Eight Academy.
+
+## Preguntas frecuentes
+
+- [Preguntas frecuentes](https://vibramente-web-app.web.app/#faq):
+  requisitos previos, dedicación semanal, herramientas, qué se lleva el
+  participante y precios.
+
+## Contacto
+
+- [WhatsApp +593 99 979 3094](https://wa.me/593999793094): canal principal,
+  responde Felipe.
+- [hola@vibramente.studio](mailto:hola@vibramente.studio): correo.
+- [Formulario](https://vibramente-web-app.web.app/#contacto): se responde con
+  una propuesta de 20 minutos, sin compromiso.
+
+## Opcional
+
+- [Sitio completo](https://vibramente-web-app.web.app/): landing única con
+  todo el contenido anterior.
