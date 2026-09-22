@@ -1,0 +1,35 @@
+rules_version = '2';
+
+// Formularios del sitio de Vibramente.
+// Cualquiera puede CREAR un lead desde la web; nadie puede leerlos,
+// editarlos ni borrarlos con la clave pública. Para verlos usa la
+// consola de Firebase o el Admin SDK.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /leads/{leadId} {
+      allow read, update, delete: if false;
+
+      allow create: if
+        request.resource.data.keys().hasOnly(
+          ['nombre', 'contacto', 'perfil', 'tarea', 'origen', 'creadoEn']
+        )
+        && request.resource.data.nombre is string
+        && request.resource.data.nombre.size() > 1
+        && request.resource.data.nombre.size() <= 120
+        && request.resource.data.contacto is string
+        && request.resource.data.contacto.size() > 4
+        && request.resource.data.contacto.size() <= 160
+        && request.resource.data.perfil in ['persona', 'empresa', 'colegio']
+        && request.resource.data.tarea is string
+        && request.resource.data.tarea.size() <= 1000
+        && request.resource.data.origen is string
+        && request.resource.data.origen.size() <= 120
+        && request.resource.data.creadoEn == request.time;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
