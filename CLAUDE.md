@@ -30,6 +30,17 @@ Firestore.
   atributos `width`/`height`, hay que poner también `height: auto` en el
   estilo inline. El atributo `height` es un *presentational hint* que fija la
   altura y anula el `aspect-ratio` (deformó las fotos una vez).
+- **Versionar al reemplazar un asset.** `firebase.json` cachea imágenes y
+  video como `immutable` por un año, así que sustituir un archivo con el
+  mismo nombre **no llega a quien ya visitó el sitio**. Las rutas llevan
+  `?v=N` (hoy `v=2`): al cambiar un asset hay que subir ese número en
+  `index.html` y en `app.js`. El HTML sí se revalida siempre, por eso
+  funciona.
+- **Video del hero:** fuente en `assets-src/setup-hero.mp4` (el anterior
+  quedó como `setup-hero-v1.mp4`). Se recorta la banda panorámica que
+  realmente se ve, se quita el audio, y lleva un fundido encadenado de 1 s
+  para que el bucle no dé un salto. El póster se genera del primer
+  fotograma del video ya codificado, si no, se nota el cambio al arrancar.
 
 ## Datos de la página
 
