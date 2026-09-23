@@ -41,6 +41,11 @@ Firestore.
   realmente se ve, se quita el audio, y lleva un fundido encadenado de 1 s
   para que el bucle no dé un salto. El póster se genera del primer
   fotograma del video ya codificado, si no, se nota el cambio al arrancar.
+  **No degradar para ahorrar peso:** nada de denoise, de bajar fps ni de
+  reescalar; se codifica a resolución nativa con CRF bajo. Si pesa demasiado,
+  el problema es el material de origen, no el bitrate. El archivo actual
+  entró por WhatsApp (464×832, ya recomprimido); un original del teléfono
+  (1080×1920) daría el doble de ancho real sin tocar la codificación.
 
 ## Datos de la página
 
