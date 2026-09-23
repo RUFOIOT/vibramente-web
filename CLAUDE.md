@@ -41,11 +41,17 @@ Firestore.
   realmente se ve, se quita el audio, y lleva un fundido encadenado de 1 s
   para que el bucle no dé un salto. El póster se genera del primer
   fotograma del video ya codificado, si no, se nota el cambio al arrancar.
-  **No degradar para ahorrar peso:** nada de denoise, de bajar fps ni de
-  reescalar; se codifica a resolución nativa con CRF bajo. Si pesa demasiado,
-  el problema es el material de origen, no el bitrate. El archivo actual
-  entró por WhatsApp (464×832, ya recomprimido); un original del teléfono
-  (1080×1920) daría el doble de ancho real sin tocar la codificación.
+  **No degradar para ahorrar peso:** nada de denoise ni de bajar fps. Si
+  pesa demasiado, el problema suele ser el material de origen, no el bitrate:
+  una copia que pasó por WhatsApp llega a 464×832 y estirarla al hero (1440
+  px) la deja borrosa por más bitrate que se le ponga. Pedir siempre el
+  original del teléfono (AirDrop o Drive, nunca por WhatsApp).
+  El master actual sale de un 4K 60 fps (2160×3840 tras rotar): se recorta la
+  banda `crop=2160:1215:0:1400`, se **reduce** a 1280×720 (reducir se ve
+  nítido; ampliar no) y se codifica con `-crf 26 -preset veryslow -tune film`
+  → 2,1 MB. CRF 29 ya muestra bloques en el texto de los monitores.
+  `assets-src/setup-hero-master.mp4` es el master archivable en 1600×900; el
+  .MOV original (198 MB) queda fuera del repo por el límite de GitHub.
 
 ## Datos de la página
 

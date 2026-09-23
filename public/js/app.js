@@ -43,7 +43,7 @@ const AUDIENCES = {
     cta: "Quiero la próxima cohorte",
     accent: "#9431fa",
     ctaText: "#ffffff",
-    img: "assets/cohorte-checkpoint.jpg?v=3",
+    img: "assets/cohorte-checkpoint.jpg?v=4",
     imgPos: "center 45%",
     imgAlt: "Participante trabajando en el lab frente al checkpoint de la semana 1 de la cohorte",
     points: [
@@ -62,7 +62,7 @@ const AUDIENCES = {
     cta: "Agendar un diagnóstico",
     accent: "#2c6eea",
     ctaText: "#ffffff",
-    img: "assets/orion-sesion-trabajo.jpg?v=3",
+    img: "assets/orion-sesion-trabajo.jpg?v=4",
     imgPos: "center 50%",
     imgAlt: "Sesión de trabajo en el lab con varios equipos abiertos implementando un agente",
     points: [
@@ -81,7 +81,7 @@ const AUDIENCES = {
     cta: "Agendar una visita",
     accent: "#2cdade",
     ctaText: "#070b14",
-    img: "assets/colegio-docentes.jpg?v=3",
+    img: "assets/colegio-docentes.jpg?v=4",
     imgPos: "center 55%",
     imgAlt: "Grupo de docentes al cierre de un taller de IA en un colegio",
     points: [
