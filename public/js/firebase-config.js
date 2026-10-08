@@ -13,7 +13,7 @@ export const firebaseConfig = {
 };
 
 // Número de WhatsApp al que van todos los CTA (formato internacional, sin +).
-export const WHATSAPP_NUMBER = "593999793094";
+export const WHATSAPP_NUMBER = "593995823097";
 
 // Colección de Firestore donde se guardan los formularios.
 export const LEADS_COLLECTION = "leads";

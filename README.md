@@ -2,7 +2,7 @@
 
 Sitio estático (HTML + CSS + JS, sin build) para **Vibramente** (AI &
 Hacking School, Quito). Tiene un formulario que guarda leads en **Firestore**
-y todos los CTA conectados a **WhatsApp +593 99 979 3094**. Se despliega en
+y todos los CTA conectados a **WhatsApp +593 99 582 3097**. Se despliega en
 **Firebase Hosting**.
 
 ```
@@ -121,7 +121,7 @@ exports.avisoLead = onDocumentCreated("leads/{id}", async (event) => {
 
 El número vive en `WHATSAPP_NUMBER` (`public/js/firebase-config.js`) para el
 CTA dinámico del selector de público, y como enlace directo
-(`wa.me/593999793094`) en la barra de navegación, el bloque de contacto y el
+(`wa.me/593995823097`) en la barra de navegación, el bloque de contacto y el
 botón flotante del `index.html`.
 
 Cada CTA lleva su propio mensaje precargado: cohorte, diagnóstico de empresa
