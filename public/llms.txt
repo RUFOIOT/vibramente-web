@@ -13,26 +13,26 @@ Claude). Idioma: español.
 
 ## Líneas de trabajo
 
-- [Para quién es](https://vibramente-web-app.web.app/#rutas): los tres
+- [Para quién es](https://www.vibramente.xyz/#rutas): los tres
   públicos — profesionales y founders (cohortes), empresas (ORION by
   Vibramente) y colegios (Vibramente Labs).
-- [Cohortes](https://vibramente-web-app.web.app/#cohorte): cuatro semanas,
+- [Cohortes](https://www.vibramente.xyz/#cohorte): cuatro semanas,
   ocho sesiones en vivo, demo funcionando en la sesión final. Próxima
   cohorte el 6 de octubre de 2026, 10 cupos, 950 USD de lanzamiento sobre
   1.900 USD.
-- [El método](https://vibramente-web-app.web.app/#metodo): detecta, diseña,
+- [El método](https://www.vibramente.xyz/#metodo): detecta, diseña,
   construye, implementa.
 
 ## Quién enseña
 
-- [Felipe Salgado](https://vibramente-web-app.web.app/#felipe): Forward
+- [Felipe Salgado](https://www.vibramente.xyz/#felipe): Forward
   Deploy Engineer con más de 10 años construyendo, de blockchain a
   arquitectura de agentes. Asesor de UNICEF Chile, mentor ETHDenver 2023 y
   2025, finalista Startup World Cup SV 2023, docente en Eight Academy.
 
 ## Preguntas frecuentes
 
-- [Preguntas frecuentes](https://vibramente-web-app.web.app/#faq):
+- [Preguntas frecuentes](https://www.vibramente.xyz/#faq):
   requisitos previos, dedicación semanal, herramientas, qué se lleva el
   participante y precios.
 
@@ -41,10 +41,10 @@ Claude). Idioma: español.
 - [WhatsApp +593 99 979 3094](https://wa.me/593999793094): canal principal,
   responde Felipe.
 - [hola@vibramente.studio](mailto:hola@vibramente.studio): correo.
-- [Formulario](https://vibramente-web-app.web.app/#contacto): se responde con
+- [Formulario](https://www.vibramente.xyz/#contacto): se responde con
   una propuesta de 20 minutos, sin compromiso.
 
 ## Opcional
 
-- [Sitio completo](https://vibramente-web-app.web.app/): landing única con
+- [Sitio completo](https://www.vibramente.xyz/): landing única con
   todo el contenido anterior.
