@@ -29,3 +29,11 @@ export const EVENTS_COLLECTION = "eventos";
 export const EMAILJS_SERVICE_ID = "service_3gfe0sd";
 export const EMAILJS_TEMPLATE_ID = "template_b6vnxyb";
 export const EMAILJS_PUBLIC_KEY = "qc3flq5TTsTogVD11";
+
+// Reseñas de Google (Places API New). Se leen en vivo en cada visita que
+// llega a la sección, así una reseña nueva aparece sola sin redesplegar.
+// La clave es pública por diseño, pero va restringida en Google Cloud a los
+// dominios del sitio y solo a la Places API, con cuota diaria tope.
+// Vacías = no se consulta nada y queda solo el bloque "Deja tu reseña".
+export const PLACES_API_KEY = "";
+export const PLACE_ID = "";

@@ -4,7 +4,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import {
   firebaseConfig, WHATSAPP_NUMBER, LEADS_COLLECTION, EVENTS_COLLECTION,
-  EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY
+  EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY,
+  PLACES_API_KEY, PLACE_ID
 } from "./firebase-config.js";
 
 // Import dinámico: si el CDN de EmailJS falla, no debe tumbar el resto del
@@ -358,7 +359,93 @@ function setupHeroVideo() {
 }
 
 /* ------------------------------------------------------------------ *
- * 7. Arranque
+ * 7. Reseñas de Google
+ * ------------------------------------------------------------------ */
+
+// Se piden en vivo a la Places API cuando la sección se acerca a la
+// pantalla: una reseña nueva aparece sin redesplegar y quien no baja hasta
+// aquí no gasta cuota. Google entrega como máximo 5 (las más relevantes).
+// Si falla o no hay reseñas, queda el bloque "Deja tu reseña" de siempre.
+// Todo el texto de las reseñas entra con textContent, nunca como HTML.
+function setupReviews() {
+  const box = document.getElementById("resenas-google");
+  if (!box || !PLACES_API_KEY || !PLACE_ID) return;
+  const cargar = async () => {
+    try {
+      const res = await fetch(
+        `https://places.googleapis.com/v1/places/${PLACE_ID}?languageCode=es`,
+        { headers: {
+          "X-Goog-Api-Key": PLACES_API_KEY,
+          "X-Goog-FieldMask": "rating,userRatingCount,reviews,googleMapsUri"
+        } }
+      );
+      if (!res.ok) return;
+      const place = await res.json();
+      const reviews = place.reviews || [];
+      if (!reviews.length) return;
+      renderReviews(box, place, reviews);
+    } catch { /* sin reseñas en vivo: queda el bloque de siempre */ }
+  };
+  if (!("IntersectionObserver" in window)) return void cargar();
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { io.disconnect(); cargar(); }
+  }, { rootMargin: "600px 0px" });
+  // Se observa el bloque visible de al lado: un elemento con `hidden` no
+  // tiene caja y el observer nunca lo daría por visible.
+  io.observe(document.getElementById("resenas") || box);
+}
+
+const el = (tag, style, text) => {
+  const n = document.createElement(tag);
+  if (style) n.style.cssText = style;
+  if (text != null) n.textContent = text;
+  return n;
+};
+const estrellas = (n) => "★★★★★".slice(0, Math.round(n)) + "☆☆☆☆☆".slice(0, 5 - Math.round(n));
+
+function renderReviews(box, place, reviews) {
+  box.textContent = "";
+  const head = el("div", "display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;");
+  head.append(
+    el("span", "font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 40px;",
+      (place.rating || 0).toFixed(1)),
+    el("span", "font-size: 22px; letter-spacing: 2px; color: #d6b36a;", estrellas(place.rating || 0)),
+    el("span", "font-size: 15px; color: #9ba6bd;",
+      `${place.userRatingCount || reviews.length} reseñas en Google`)
+  );
+  head.lastChild.setAttribute("aria-label", `Calificación ${(place.rating || 0).toFixed(1)} de 5`);
+
+  const row = el("ul", "margin: 0; padding: 4px 0 12px; list-style: none; display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory;");
+  row.setAttribute("aria-label", "Reseñas de Google");
+  for (const r of reviews) {
+    const a = r.authorAttribution || {};
+    const card = el("li", "flex: 0 0 min(320px, 82vw); scroll-snap-align: start; padding: 24px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 12px;");
+    const who = el("div", "display: flex; align-items: center; gap: 12px;");
+    if (a.photoUri) {
+      const img = el("img", "width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;");
+      img.src = a.photoUri; img.alt = ""; img.width = 40; img.height = 40;
+      img.loading = "lazy"; img.referrerPolicy = "no-referrer";
+      who.append(img);
+    }
+    const meta = el("div", "display: flex; flex-direction: column; min-width: 0;");
+    const name = el(a.uri ? "a" : "span", "font-weight: 600; color: #f4f1ea; text-decoration: none;", a.displayName || "Cliente de Google");
+    if (a.uri) { name.href = a.uri; name.target = "_blank"; name.rel = "noopener"; }
+    meta.append(name, el("span", "font-size: 13px; color: #9ba6bd;", r.relativePublishTimeDescription || ""));
+    who.append(meta);
+    const stars = el("span", "font-size: 16px; letter-spacing: 2px; color: #d6b36a;", estrellas(r.rating));
+    stars.setAttribute("aria-label", `${r.rating} de 5 estrellas`);
+    const texto = (r.originalText || r.text || {}).text || "";
+    card.append(who, stars,
+      el("p", "margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;", texto));
+    row.append(card);
+  }
+  box.append(head, row);
+  box.style.cssText = "display: flex; flex-direction: column; gap: 16px;";
+  box.hidden = false;
+}
+
+/* ------------------------------------------------------------------ *
+ * 8. Arranque
  * ------------------------------------------------------------------ */
 
 render();
@@ -366,4 +453,5 @@ renderFaq();
 setupForm();
 setupNav();
 setupHeroVideo();
+setupReviews();
 track("visita", location.hash || "inicio");
