@@ -83,3 +83,16 @@ firebase deploy --only firestore:rules    # publicar reglas
   626 KB que no se descargan.
 - `robots.txt`, `sitemap.xml` y `llms.txt` viven en `public/`. Sin ellos, el
   rewrite `**` de `firebase.json` devuelve el HTML del sitio en su lugar.
+
+## Servicios (`#servicios`)
+
+- Cada tarjeta es un `<li data-servicio="slug">`. Para ponerle video, se
+  añade `data-video="assets/servicios/<slug>.mp4?v=1"` y
+  `data-poster="assets/servicios/<slug>.jpg?v=1"` (16:9). `setupServiceVideos`
+  lo crea, lo descarga solo al entrar en pantalla y lo pausa al salir.
+  Mismas reglas que el hero: sin audio, reducido (720p o menos) y póster del
+  primer fotograma.
+- Los CTA con `data-demo` llevan al formulario con perfil "empresa" y la
+  tarea "Quiero agendar un demo de: …" ya escrita (`setupDemos`).
+- La calculadora supone que el agente cubre el 60 % de la tarea
+  (`COBERTURA_AGENTE` en `app.js`).

@@ -469,7 +469,62 @@ function setupDemos() {
 }
 
 /* ------------------------------------------------------------------ *
- * 9. Arranque
+ * 9. Calculadora de horas y videos de los servicios
+ * ------------------------------------------------------------------ */
+
+const COBERTURA_AGENTE = 0.6;
+const SEMANAS_MES = 4.33;
+const fmt = (n) => Math.round(n).toLocaleString("es-EC");
+
+function setupCalculadora() {
+  const ids = ["calc-personas", "calc-horas", "calc-costo"];
+  const inputs = ids.map((id) => document.getElementById(id));
+  if (inputs.some((i) => !i)) return;
+  const calcular = () => {
+    const [personas, horas, costo] = inputs.map((i) => Number(i.value));
+    inputs.forEach((i) => { document.getElementById(i.id + "-v").textContent = i.value; });
+    const horasMes = personas * horas * SEMANAS_MES * COBERTURA_AGENTE;
+    document.getElementById("calc-res-horas").textContent = `${fmt(horasMes)} h`;
+    document.getElementById("calc-res-mes").textContent = `${fmt(horasMes * costo)} USD`;
+    document.getElementById("calc-res-anio").textContent = `${fmt(horasMes * costo * 12)} USD`;
+  };
+  inputs.forEach((i) => i.addEventListener("input", calcular));
+  calcular();
+}
+
+// Para poner un video en una tarjeta de servicio basta con añadir al <li>
+// data-video="assets/servicios/<slug>.mp4?v=1" y data-poster="…jpg?v=1".
+// Se descarga solo cuando la tarjeta entra en pantalla y se pausa al salir.
+// Con prefers-reduced-motion no arranca solo: queda con controles.
+function setupServiceVideos() {
+  const cards = document.querySelectorAll("li[data-servicio][data-video]");
+  if (!cards.length) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach(({ target: v, isIntersecting }) => {
+          if (isIntersecting) {
+            if (!v.src) v.src = v.dataset.src;
+            if (!reduce) v.play().catch(() => {});
+          } else if (!v.paused) v.pause();
+        });
+      }, { rootMargin: "200px 0px" })
+    : null;
+  cards.forEach((li) => {
+    const v = document.createElement("video");
+    v.dataset.src = li.dataset.video;
+    if (li.dataset.poster) v.poster = li.dataset.poster;
+    v.muted = true; v.loop = true; v.playsInline = true; v.preload = "none";
+    v.setAttribute("aria-label", "Video del servicio: " + (li.querySelector("h3")?.textContent || ""));
+    if (reduce) v.controls = true;
+    v.style.cssText = "width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; background: #070b14; display: block;";
+    li.prepend(v);
+    if (io) io.observe(v); else { v.src = v.dataset.src; v.controls = true; }
+  });
+}
+
+/* ------------------------------------------------------------------ *
+ * 10. Arranque
  * ------------------------------------------------------------------ */
 
 render();
@@ -479,4 +534,6 @@ setupNav();
 setupHeroVideo();
 setupReviews();
 setupDemos();
+setupCalculadora();
+setupServiceVideos();
 track("visita", location.hash || "inicio");
