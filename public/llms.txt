@@ -23,6 +23,21 @@ Claude). Idioma: español.
 - [El método](https://www.vibramente.xyz/#metodo): detecta, diseña,
   construye, implementa.
 
+## Servicios para empresas
+
+- [Portafolio de servicios](https://www.vibramente.xyz/#servicios): se
+  puede agendar un demo de 30 minutos para revisión de cada servicio.
+  - Agent as a Service: agentes diseñados, alojados, monitoreados y
+    mejorados por Vibramente con suscripción mensual.
+  - Agentes a la medida para tareas concretas del negocio.
+  - Automatizaciones corporativas entre CRM, correo, hojas de cálculo y ERP.
+  - Agentes que agendan y responden por WhatsApp y web, en operación con
+    Kryocare y Ecua-American (Chequeos 360).
+  - Recorridos virtuales e inmersivos en Unreal Engine 5 para inmobiliarias.
+  - Consultoría end to end: estrategia agéntica, políticas de gobernanza y
+    estrategia de implementación.
+  - Software a la medida para logística y restaurantes (con Apple Vision Pro).
+
 ## Quién enseña
 
 - [Felipe Salgado](https://www.vibramente.xyz/#felipe): Forward

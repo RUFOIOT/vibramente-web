@@ -445,7 +445,31 @@ function renderReviews(box, place, reviews) {
 }
 
 /* ------------------------------------------------------------------ *
- * 8. Arranque
+ * 8. Demos de servicios: el CTA lleva al formulario ya preparado
+ * ------------------------------------------------------------------ */
+
+const DEMO_PREFIJO = "Quiero agendar un demo de: ";
+
+function setupDemos() {
+  const tarea = document.getElementById("c-tarea");
+  document.querySelectorAll("[data-demo]").forEach((a) => {
+    a.addEventListener("click", () => {
+      const servicio = a.dataset.demo;
+      current = "empresa";
+      if (els.perfil) els.perfil.value = "empresa";
+      render();
+      // Solo se reemplaza un texto que pusimos nosotros, nunca lo que la persona escribió.
+      if (tarea && (!tarea.value.trim() || tarea.value.startsWith(DEMO_PREFIJO))) {
+        tarea.value = DEMO_PREFIJO + servicio + ".";
+      }
+      track("perfil", ("demo-" + servicio).slice(0, 60));
+      setTimeout(() => document.getElementById("c-nombre")?.focus({ preventScroll: true }), 400);
+    });
+  });
+}
+
+/* ------------------------------------------------------------------ *
+ * 9. Arranque
  * ------------------------------------------------------------------ */
 
 render();
@@ -454,4 +478,5 @@ setupForm();
 setupNav();
 setupHeroVideo();
 setupReviews();
+setupDemos();
 track("visita", location.hash || "inicio");

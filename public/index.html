@@ -31,6 +31,7 @@ a{color:#6bf4c8}a:hover{color:#2cdade}
 html{scroll-behavior:smooth}
 img,video{max-width:100%}
 .navlinks{display:flex}
+.navlinks a,#nav-wa{white-space:nowrap}
 button,input,select,textarea{font-family:inherit}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #6bf4c8;outline-offset:3px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
@@ -144,7 +145,7 @@ nav[aria-label="Principal"]{gap:12px!important}
 <a href="#inicio" aria-label="Vibramente, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none;"><img class="brand-iso" src="assets/isotipo.png?v=6" alt="" width="58" height="32" style="width: 58px; height: auto; display: block;"><span class="brand-div" style="width: 1px; height: 28px; background: rgba(255,255,255,0.18);"></span><img class="brand-wm" src="assets/wordmark.png?v=6" alt="Vibramente" width="190" height="32" style="width: 190px; height: auto; display: block;"></a>
 <div class="navlinks" id="navlinks" style="align-items: center; gap: 28px; font-size: 15px;">
 <a href="#rutas" style="color: #c9d2e3; text-decoration: none;">Qué hacemos</a>
-<a href="#metodo" style="color: #c9d2e3; text-decoration: none;">Método</a>
+<a href="#servicios" style="color: #c9d2e3; text-decoration: none;">Servicios</a>
 <a href="#cohorte" style="color: #c9d2e3; text-decoration: none;">Cohortes</a>
 <a href="#felipe" style="color: #c9d2e3; text-decoration: none;">Quiénes somos</a>
 <a href="#faq" style="color: #c9d2e3; text-decoration: none;">Preguntas</a>
@@ -196,7 +197,78 @@ nav[aria-label="Principal"]{gap:12px!important}
 </div>
 </section>
 
-<section id="metodo" aria-labelledby="metodo-t" style="background: #070b14; border-top: 1px solid rgba(255,255,255,0.08);">
+<section id="servicios" aria-labelledby="servicios-t" style="background: #070b14; border-top: 1px solid rgba(255,255,255,0.08);">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 36px;">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px;">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #b98cff;">Portafolio · Servicios para empresas</span>
+<h2 id="servicios-t" style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.02; letter-spacing: -0.03em;">Lo que construimos para tu empresa</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #c9d2e3;">El mismo equipo que enseña a construir agentes los despliega en empresas reales. Elige un servicio y te lo mostramos funcionando.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px;">
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #9431fa;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(148,49,250,0.16); color: #b98cff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5H7z"/><path d="M12 11v4M10 13h4"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Agent as a Service</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Tu agente, operado por nosotros. Lo diseñamos, lo alojamos, lo monitoreamos y lo mejoramos cada mes. Pagas una suscripción, no un proyecto, y no necesitas equipo técnico.</p>
+<a href="#contacto" data-demo="Agent as a Service" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #5c33ee;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(92,51,238,0.18); color: #b98cff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9.5 15h5M2 12h3M19 12h3"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Agentes a la medida</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Un agente para una tarea concreta de tu negocio, con tus datos, tus herramientas y tus límites. De la especificación a producción, con revisión humana donde hace falta.</p>
+<a href="#contacto" data-demo="Agentes a la medida" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #2c6eea;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(44,110,234,0.18); color: #2cdade;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M9 6h4a3 3 0 0 1 3 3v6M15 18h-4a3 3 0 0 1-3-3V9"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Automatizaciones corporativas</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Conectamos tus sistemas (CRM, correo, hojas de cálculo, ERP) para que la información fluya sola. Menos copiar y pegar, menos errores, reportes que llegan a tiempo.</p>
+<a href="#contacto" data-demo="Automatizaciones corporativas" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #2cdade;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(44,218,222,0.14); color: #2cdade;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Agentes que agendan y responden por ti</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Atienden por WhatsApp y web las 24 horas: responden dudas, agendan, reagendan, envían recordatorios y pasan a una persona los casos delicados. Con dashboard para ver cada conversación.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px;"><span style="font-size: 13px; color: #9ba6bd;">En operación con:</span><span style="padding: 6px 12px; border-radius: 999px; border: 1px solid #d6b36a; font-size: 13px; font-weight: 600; color: #d6b36a;">Kryocare</span><span style="padding: 6px 12px; border-radius: 999px; border: 1px solid #d6b36a; font-size: 13px; font-weight: 600; color: #d6b36a;">Ecua-American · Chequeos 360</span></div>
+<a href="#contacto" data-demo="Agentes que agendan y responden" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #b98cff;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(185,140,255,0.16); color: #b98cff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Recorridos virtuales en Unreal Engine 5</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Recorridos inmersivos y fotorrealistas para inmobiliarias: vende proyectos antes de construirlos, muestra acabados y distribuciones en tiempo real y lleva la visita al navegador o a realidad virtual.</p>
+<a href="#contacto" data-demo="Recorridos virtuales Unreal Engine 5" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #9431fa;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(148,49,250,0.16); color: #b98cff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Consultoría y estrategia agéntica end to end</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Del diagnóstico a la operación: hoja de ruta de implementación, políticas de gobernanza (datos, límites, revisión humana y auditoría) y acompañamiento hasta que los agentes rinden en tu equipo.</p>
+<a href="#contacto" data-demo="Consultoría y estrategia agéntica" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+
+<li style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #101826; border: 1px solid rgba(255,255,255,0.10); border-top: 4px solid #2c6eea;">
+<span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; background: rgba(44,110,234,0.18); color: #2cdade;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13.5 6l-3 12"/></svg></span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.15;">Software a la medida</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #c9d2e3;">Aplicaciones hechas para tu operación. Logística: rutas, trazabilidad e inventario en tiempo real. Restaurantes: experiencias inmersivas con Apple Vision Pro, como menús en 3D y recorridos del local.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><span style="padding: 6px 12px; border-radius: 999px; background: #070b14; font-size: 13px; color: #c9d2e3;">Logística</span><span style="padding: 6px 12px; border-radius: 999px; background: #070b14; font-size: 13px; color: #c9d2e3;">Restaurantes</span><span style="padding: 6px 12px; border-radius: 999px; background: #070b14; font-size: 13px; color: #c9d2e3;">Apple Vision Pro</span></div>
+<a href="#contacto" data-demo="Software a la medida" style="margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; color: #2cdade; font-size: 15px; font-weight: 600; text-decoration: none;">Pedir demo de este servicio →</a>
+</li>
+</ul>
+
+<div style="padding: 32px; border-radius: 24px; background: #131512; border: 1px solid rgba(255,255,255,0.10); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;">
+<div style="display: flex; flex-direction: column; gap: 6px; max-width: 640px;">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.15;">Agenda un demo para revisión</span>
+<span style="font-size: 16px; line-height: 1.6; color: #c9d2e3;">En 30 minutos te mostramos el servicio funcionando con un caso parecido al tuyo y vemos juntos si encaja. Sin compromiso.</span>
+</div>
+<a href="#contacto" data-demo="Demo de servicios" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #6bf4c8; color: #070b14; font-weight: 600; font-size: 16px; text-decoration: none;">Agenda tu cita</a>
+</div>
+</div>
+</section>
+
+<section id="metodo"aria-labelledby="metodo-t" style="background: #070b14; border-top: 1px solid rgba(255,255,255,0.08);">
 <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 36px;">
 <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #b98cff;">El método</span>
