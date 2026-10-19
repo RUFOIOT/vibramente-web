@@ -31,8 +31,9 @@ Claude). Idioma: español.
     mejorados por Vibramente con suscripción mensual.
   - Agentes a la medida para tareas concretas del negocio.
   - Automatizaciones corporativas entre CRM, correo, hojas de cálculo y ERP.
-  - Agentes que agendan y responden por WhatsApp y web, en operación con
-    Kryocare y Ecua-American (Chequeos 360).
+  - Agente 3 en 1 por WhatsApp y web: agendamiento, CRM y marketing
+    (envía publicidad, promociones y contenido a la base de contactos). En
+    operación con KryoCare y Ecua-American (Chequeos 360).
   - Recorridos virtuales e inmersivos en Unreal Engine 5 para inmobiliarias.
   - Consultoría end to end: estrategia agéntica, políticas de gobernanza y
     estrategia de implementación.
