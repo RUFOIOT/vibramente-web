@@ -52,7 +52,7 @@ const AUDIENCES = {
       "Un agente para una tarea real que repites cada semana",
       "Demo funcionando en la sesión final"
     ],
-    wa: "Hola Felipe, quiero información de la próxima cohorte de Vibramente (6 de octubre)."
+    wa: "Hola Felipe, quiero información de la próxima cohorte de Vibramente."
   },
   empresa: {
     label: "Empresas",
@@ -99,7 +99,7 @@ const FAQS = [
   ["¿Cuánto tiempo necesito por semana?", "En cohorte: dos sesiones en vivo de 2 horas por semana, más el tiempo que dediques a construir tu agente entre sesiones."],
   ["¿Qué herramientas usamos?", "Principalmente Claude y sus conectores. Te ayudamos a dejar todo configurado antes de la primera sesión para no perder tiempo de clase."],
   ["¿Qué me llevo al final?", "Un agente funcionando para una tarea real, su especificación documentada y la experiencia de presentarlo en vivo."],
-  ["¿Cuánto cuesta?", "Cohortes: 950 USD de precio de lanzamiento (precio normal 1.900 USD) para la cohorte del 6 de octubre de 2026, con 10 cupos. Empresas y colegios reciben una propuesta según el alcance después de una llamada de 20 minutos."]
+  ["¿Cuánto cuesta?", "Cohortes: 950 USD de precio de lanzamiento (precio normal 1.900 USD) para la próxima cohorte, con 10 cupos. Empresas y colegios reciben una propuesta según el alcance después de una llamada de 20 minutos."]
 ];
 
 const waLink = (text) =>

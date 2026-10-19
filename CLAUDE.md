@@ -56,8 +56,8 @@ Firestore.
 ## Datos de la página
 
 El texto dinámico vive en `public/js/app.js`:
-`AUDIENCES` (los tres públicos) y `FAQS`. La oferta actual (6 de octubre de
-2026, 10 cupos, 950 USD de lanzamiento sobre 1.900 USD) aparece en el HTML
+`AUDIENCES` (los tres públicos) y `FAQS`. La oferta actual (fecha sin publicar por ahora,
+10 cupos, 950 USD de lanzamiento sobre 1.900 USD) aparece en el HTML
 y en la última pregunta del FAQ: al cambiarla, actualizar ambos.
 
 ## Comandos
