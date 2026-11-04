@@ -33,7 +33,7 @@ Claude). Idioma: español.
   - Automatizaciones corporativas entre CRM, correo, hojas de cálculo y ERP.
   - Agente 3 en 1 por WhatsApp y web: agendamiento, CRM y marketing
     (envía publicidad, promociones y contenido a la base de contactos). En
-    operación con KryoCare y Ecua-American (Chequeos 360).
+    operación con KryoCare.
   - Recorridos virtuales e inmersivos en Unreal Engine 5 para inmobiliarias.
   - Consultoría end to end: estrategia agéntica, políticas de gobernanza y
     estrategia de implementación.
